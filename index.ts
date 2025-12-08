@@ -1,5 +1,6 @@
 import express from "express";
 import  {getCustomers} from "./controller/dbquery.js";
+import  {getAllCustomersWithoutPagination} from "./controller/dbqueryAll.js";
 import cors from 'cors';
 const app = express();
 
@@ -14,6 +15,7 @@ app.get('/health' , (req , res)=>{
 
 
 app.get("/search", getCustomers);
+app.get("/searchall", getAllCustomersWithoutPagination);
 
 app.listen(3000 , ()=>{
     console.log("Server is running at port 3000");
